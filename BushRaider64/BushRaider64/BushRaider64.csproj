@@ -62,7 +62,6 @@
     <Compile Include="ScreenManager\PlayScreen.cs" />
     <Compile Include="ScreenManager\ScreenManager.cs" />
     <Compile Include="TileMap\Tile.cs" />
-    <Compile Include="TileMap\TileMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
