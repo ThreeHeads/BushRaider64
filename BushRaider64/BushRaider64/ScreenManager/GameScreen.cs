@@ -12,7 +12,7 @@ namespace BushRaider64
 
         abstract public void LoadContent();
 
-        abstract public void Update();//A
+        abstract public void Update();
 
         abstract public void Draw();
     }
