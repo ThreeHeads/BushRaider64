@@ -16,6 +16,8 @@ namespace BushRaider64
 
         private ScreenManager screenManger;
         public RenderWindow renderWindow;
+        private Sprite background;
+        private SpriteFactory spriteFactory;
 
         //GameTime
 
@@ -27,10 +29,17 @@ namespace BushRaider64
 
         public BushRaider()
         {
-            renderWindow = new RenderWindow(new VideoMode(1280, 760), "Bush Raider", Styles.Default);
+            //Window Initialisieren
+
+            renderWindow = new RenderWindow(new VideoMode(1260, 980), "SFML window");
             renderWindow.SetVisible(true);
             renderWindow.SetVerticalSyncEnabled(true);
             renderWindow.Closed += new EventHandler(onClosed);
+
+            //Test Sprite
+
+            spriteFactory = new SpriteFactory();
+            background = spriteFactory.createSprite(new IntRect(0, 0, 1260, 980), "GameAssets/logo.png");
 
             //GameTime Initialisieren
 
@@ -65,6 +74,8 @@ namespace BushRaider64
         public void Draw()
         {
             renderWindow.Clear(Color.Blue);
+            renderWindow.Draw(background);
+            renderWindow.Display();
         }
 
         public void onClosed(Object sender, EventArgs e)
