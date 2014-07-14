@@ -11,6 +11,8 @@ namespace BushRaider64
         static void Main(string[] args)
         {
             //commi
+            Window TestWindow = new Window();
+            TestWindow.start();
         }
     }
 }
