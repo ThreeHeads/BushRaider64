@@ -7,7 +7,7 @@ using System.IO;
 using SFML.Window;
 using SFML.Graphics;
 
-namespace SCS
+namespace BushRaider64
 {
     class Label : GUIElement
     {
@@ -16,7 +16,7 @@ namespace SCS
 
         public Label(String ID, Vector2f Origin) : base(ID, GUIElementTypes.Label, Origin)
         {
-            this.LabelFont = new Font(@"C:\Users\Meta\Desktop\Coden\C#\SCS\SCS\Resources\9SYSTEMA.TTF");
+            this.LabelFont = new Font(@"Pfad");
             this.LabelText.Font = this.LabelFont;
             this.LabelText.DisplayedString = "DefaultText";
 
