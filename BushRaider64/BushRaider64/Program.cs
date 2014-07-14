@@ -10,7 +10,7 @@ namespace BushRaider64
     {
         static void Main(string[] args)
         {
-            //commi
+            BushRaider game = new BushRaider();
         }
     }
 }
