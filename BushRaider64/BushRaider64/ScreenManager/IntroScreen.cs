@@ -8,5 +8,19 @@ namespace BushRaider64
 {
     class IntroScreen : GameScreen
     {
+        public override void LoadContent()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Draw()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
