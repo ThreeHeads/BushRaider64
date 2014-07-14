@@ -6,7 +6,7 @@ using System.Text;
 using SFML.Window;
 using SFML.Graphics;
 
-namespace SCS
+namespace BushRaider64
 {
     class Button : GUIElement
     {

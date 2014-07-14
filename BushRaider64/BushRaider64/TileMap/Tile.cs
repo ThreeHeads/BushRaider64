@@ -11,7 +11,6 @@ namespace BushRaider64
 {
     class Tile
     {
-        RenderWindow window = new RenderWindow(new VideoMode(800, 600), "Tile_Test");
         
 
         
