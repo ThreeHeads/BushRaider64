@@ -63,6 +63,7 @@ namespace BushRaider64
             renderWindow.SetView(view);
 
             screenManager = new ScreenManager(renderWindow);
+            screenManager.LoadContent();
             this.Update();
         }
 

@@ -11,29 +11,37 @@ namespace BushRaider64
 {
     class TileMap
     {
-        private Sprite tile;
+        private List<Tile> TileList;
+        private int tileWidth;
+        private int tileHeight;
 
-        public TileMap(int tile_width, int tile_height)
+        public TileMap(int tileWidth, int tileHeight)
         {
-            //this.tile = SpriteFactory.createSprite(new IntRect(0, 0, 100, 100), "GameAssets/stone_cobble.jpg");
-            this.tile = SpriteFactory.createSpriteNoScale(64, 64, new Vector2f(50f, 0f), "GameAssets/desert.png");
-            
+            this.tileWidth = tileWidth;
+            this.tileHeight = tileHeight;
+
+            TileList = new List<Tile>();
+            TileList.Add(new Tile(tileWidth, tileHeight));
         }
 
         public void LoadContent()
         {
-
+            TileList[0].LoadContent(new Vector2f(0f, 0f), "GameAssets/desert.png");
+            //this.tile = SpriteFactory.createSprite(new IntRect(0, 0, 100, 100), "GameAssets/stone_cobble.jpg");
         }
 
-        public void TileMapDraw(RenderWindow renderWindow)
+        public void Update(TimeSpan deltaTime)
+        {
+        }
+
+        public void Draw(RenderWindow renderWindow)
         {
 
             //renderWindow.Size.X / Y
 
-            tile.Position = new Vector2f(0, 0);
-            renderWindow.Draw(tile);
-            tile.Position = new Vector2f(renderWindow.Size.X-100, 0);
-            renderWindow.Draw(tile);
+            TileList[0].Draw(renderWindow);
+            
+            //tile.Position = new Vector2f(renderWindow.Size.X-100, 0);
         }
 
     }

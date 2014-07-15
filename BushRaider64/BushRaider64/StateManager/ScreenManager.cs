@@ -34,6 +34,13 @@ namespace BushRaider64
             screenList[1].screenChange += ScreenChangeHandler;
         }
 
+        public void LoadContent()
+        {
+            foreach (Screen screen in screenList)
+            {
+                screen.LoadContent();
+            }
+        }
 
         public void Update(TimeSpan deltaTime)
         {

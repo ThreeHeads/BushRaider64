@@ -75,6 +75,7 @@
     <Compile Include="StateManager\PlayScreen.cs" />
     <Compile Include="StateManager\ScreenManager.cs" />
     <Compile Include="Helper\SpriteFactory.cs" />
+    <Compile Include="TileMap\Tile.cs" />
     <Compile Include="TileMap\TileMap.cs" />
   </ItemGroup>
   <ItemGroup>
