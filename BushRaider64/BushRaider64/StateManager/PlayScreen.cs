@@ -25,6 +25,7 @@ namespace BushRaider64
 
         public override void Draw(RenderWindow renderWindow)
         {
+            renderWindow.Clear(Color.Red);
         }
     }
 }

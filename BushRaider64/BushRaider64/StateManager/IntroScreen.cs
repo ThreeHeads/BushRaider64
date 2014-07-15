@@ -34,7 +34,7 @@ namespace BushRaider64
 
         private void onIntroEnd()
         {
-            NotifyScreenChangeEvent(input.menu);
+            NotifyScreenChangeEvent(input.IntroToMenu);
         }
 
         public override void Draw(RenderWindow renderWindow)
