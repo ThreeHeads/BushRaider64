@@ -29,7 +29,7 @@ namespace BushRaider64
         {
             elapsed += deltaTime.TotalSeconds;
 
-            if (introDuration >= elapsed)
+            if (introDuration <= elapsed)
                 onIntroEnd();
         }
 
