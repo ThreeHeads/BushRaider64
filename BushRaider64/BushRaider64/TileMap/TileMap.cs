@@ -15,13 +15,15 @@ namespace BushRaider64
 
         public TileMap(int tile_width, int tile_height)
         {
-            this.tile = SpriteFactory.createSpriteCentered(new IntRect(0, 0, tile_width, tile_height), "GameAssets/stone_cobble.jpg");
+            this.tile = SpriteFactory.createSprite(new IntRect(0, 0, 100, 100), "GameAssets/stone_cobble.jpg");
         }
 
+
+        // komplette TileMap aus den Tiles zeichnen
         public void TileMapDraw(RenderWindow renderWindow)
         {
+            tile.Position = new Vector2f(0, 0);
             renderWindow.Draw(tile);
-
         }
 
     }

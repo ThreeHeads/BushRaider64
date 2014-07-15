@@ -15,7 +15,7 @@ namespace BushRaider64
 
         public PlayScreen(int screenWidth, int screenHeight, State state): base(screenWidth, screenHeight, state)
         {
-            this.tilemap = new TileMap(100, 100);
+            this.tilemap = new TileMap(50, 50);
         }
 
         public override void LoadContent()
