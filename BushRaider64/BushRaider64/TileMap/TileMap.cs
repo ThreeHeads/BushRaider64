@@ -16,9 +16,8 @@ namespace BushRaider64
         public TileMap(int tile_width, int tile_height)
         {
             //this.tile = SpriteFactory.createSprite(new IntRect(0, 0, 100, 100), "GameAssets/stone_cobble.jpg");
-            this.tile = SpriteFactory.createSpriteNoScale(64, 64, new Vector2f(0f, 0f), "GameAssets/desert.png");
+            this.tile = SpriteFactory.createSpriteNoScale(64, 64, new Vector2f(50f, 0f), "GameAssets/desert.png");
             
-            tile.Position = new Vector2f(100f, 100f);
         }
 
         public void LoadContent()
