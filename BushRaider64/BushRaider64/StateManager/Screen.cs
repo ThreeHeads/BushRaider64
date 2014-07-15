@@ -29,7 +29,7 @@ namespace BushRaider64
                 handler(input);
         }
 
-        public event ScreenHandler stateChangeHandler;
+        public event ScreenHandler screenChangeHandler;
 
         private int ScreenWidth, ScreenHeight;
 

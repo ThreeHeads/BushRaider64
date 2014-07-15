@@ -11,23 +11,27 @@ namespace BushRaider64
 {
     class MenuScreen : Screen
     {
+        double elapsed;
+
         public MenuScreen(int screenWidth, int screenHeight, State state): base(screenWidth, screenHeight, state)
         {
         }
 
         public override void LoadContent()
         {
-            throw new NotImplementedException();
         }
 
         public override void Update(TimeSpan deltaTime)
         {
-            throw new NotImplementedException();
+            elapsed += deltaTime.TotalSeconds;
+
+            if(elapsed >= 2f)
+            NotifyScreenChangeEvent(input.MenuToPlay);
         }
 
         public override void Draw(RenderWindow renderWindow)
         {
-            throw new NotImplementedException();
+            renderWindow.Clear(Color.Blue);
         }
     }
 }

@@ -41,6 +41,7 @@ namespace BushRaider64
             renderWindow.SetVerticalSyncEnabled(true);
             renderWindow.Closed += new EventHandler(OnClosed);
 
+            #region debug code
             //Debug Code
 
             foreach(VideoMode item in VideoMode.FullscreenModes)
@@ -48,6 +49,7 @@ namespace BushRaider64
                 Console.WriteLine(item.Width + " + " + item.Height + " + " + item.BitsPerPixel);
             }
             Console.WriteLine(VideoMode.DesktopMode.Width + " + " + VideoMode.DesktopMode.Height);
+            #endregion
 
             //GameTime Initialisieren
 
@@ -62,8 +64,9 @@ namespace BushRaider64
 
             screenManager = new ScreenManager(renderWindow);
             this.Update();
-
         }
+
+        //GameLoop
 
         public void Update()
         {
@@ -86,6 +89,7 @@ namespace BushRaider64
             }
         }
 
+        #region test code
         //public void Update()
         //{
         //    while (renderWindow.IsOpen())
@@ -105,6 +109,7 @@ namespace BushRaider64
         //        timer.Restart();
         //    }
         //}
+        #endregion
 
         void OnClosed(object sender, EventArgs e)
         {

@@ -11,12 +11,16 @@ namespace BushRaider64
 {
     class PlayScreen : Screen
     {
+        TileMap tilemap;
+
         public PlayScreen(int screenWidth, int screenHeight, State state): base(screenWidth, screenHeight, state)
         {
+            this.tilemap = new TileMap(100, 100);
         }
 
         public override void LoadContent()
         {
+            
         }
 
         public override void Update(TimeSpan deltaTime)
@@ -25,6 +29,8 @@ namespace BushRaider64
 
         public override void Draw(RenderWindow renderWindow)
         {
+            tilemap.TileMapDraw(renderWindow);
+            //renderWindow.Clear(Color.Red);
         }
     }
 }

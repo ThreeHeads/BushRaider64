@@ -10,7 +10,7 @@ using SFML.Audio;
 
 namespace BushRaider64
 {
-    public enum input { play, quit, options, highscore, pause, menu}
+    public enum input { IntroToMenu, MenuToPlay, MenuToOption, MenuToHighScore, Pause}
 
     public delegate void ScreenHandler(input input);
 
@@ -25,11 +25,13 @@ namespace BushRaider64
 
             screenList = new List<Screen>();
             screenList.Add(new IntroScreen((int)renderWindow.Size.X, (int)renderWindow.Size.Y,State.activ));
+            screenList.Add(new MenuScreen((int)renderWindow.Size.X, (int)renderWindow.Size.Y, State.inactive));
             screenList.Add(new PlayScreen((int)renderWindow.Size.X, (int)renderWindow.Size.Y,State.inactive));
 
             //Events anmelden
 
             screenList[0].screenChange += ScreenChangeHandler;
+            screenList[1].screenChange += ScreenChangeHandler;
         }
 
 
@@ -46,10 +48,15 @@ namespace BushRaider64
         {
             switch(input)
             {
-                case input.menu:
+                case input.IntroToMenu:
                 {
                     screenList[0].state = State.inactive;
                     screenList[1].state = State.activ; break;
+                }
+                case input.MenuToPlay:
+                {
+                    screenList[1].state = State.inactive;
+                    screenList[2].state = State.activ; break;
                 }
             }
         }
