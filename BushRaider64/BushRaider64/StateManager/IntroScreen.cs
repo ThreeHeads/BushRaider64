@@ -11,7 +11,7 @@ namespace BushRaider64
 {
     class IntroScreen : Screen
     {
-        private const double introDuration = 5f;
+        private const double introDuration = 3f;
         private double elapsed;
         private Sprite IntroLogo;
 
