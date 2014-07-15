@@ -15,6 +15,9 @@ namespace BushRaider64
         private int tileWidth;
         private int tileHeight;
 
+
+        // TODO: mapWidth, mapHeight - Dynamische Größe
+
         public TileMap(int tileWidth, int tileHeight)
         {
             this.tileWidth = tileWidth;
@@ -27,7 +30,7 @@ namespace BushRaider64
         public void LoadContent()
         {
             TileList[0].LoadContent(new Vector2f(0f, 0f), "GameAssets/desert.png");
-            //this.tile = SpriteFactory.createSprite(new IntRect(0, 0, 100, 100), "GameAssets/stone_cobble.jpg");
+            
         }
 
         public void Update(TimeSpan deltaTime)
@@ -38,7 +41,7 @@ namespace BushRaider64
         {
 
             //renderWindow.Size.X / Y
-
+            
             TileList[0].Draw(renderWindow);
             
             //tile.Position = new Vector2f(renderWindow.Size.X-100, 0);

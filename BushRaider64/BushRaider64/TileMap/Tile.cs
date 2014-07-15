@@ -33,6 +33,13 @@ namespace BushRaider64
 
         public void Draw(RenderWindow renderWindow)
         {
+            // TODO: Loop einbauen - vorher mapWith im Konstruktor TileMap !
+
+            tileSprite.Position = new Vector2f(0, 0);
+            renderWindow.Draw(tileSprite);
+            tileSprite.Position = new Vector2f(tileWidth, 0);
+            renderWindow.Draw(tileSprite);
+            tileSprite.Position = new Vector2f(tileWidth*2, 0);
             renderWindow.Draw(tileSprite);
         }
     }
