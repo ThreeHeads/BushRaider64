@@ -22,7 +22,13 @@ namespace BushRaider64
         // komplette TileMap aus den Tiles zeichnen
         public void TileMapDraw(RenderWindow renderWindow)
         {
+            //renderWindow.Size.X / Y
+
+            
+
             tile.Position = new Vector2f(0, 0);
+            renderWindow.Draw(tile);
+            tile.Position = new Vector2f(renderWindow.Size.X-100, 0);
             renderWindow.Draw(tile);
         }
 
