@@ -24,9 +24,9 @@ namespace BushRaider64
             this.renderWindow = renderWindow;
 
             screenList = new List<Screen>();
-            screenList.Add(new IntroScreen((int)renderWindow.Size.X, (int)renderWindow.Size.Y,State.activ));
+            screenList.Add(new IntroScreen((int)renderWindow.Size.X, (int)renderWindow.Size.Y,State.inactive));
             screenList.Add(new MenuScreen((int)renderWindow.Size.X, (int)renderWindow.Size.Y, State.inactive));
-            screenList.Add(new PlayScreen((int)renderWindow.Size.X, (int)renderWindow.Size.Y,State.inactive));
+            screenList.Add(new PlayScreen((int)renderWindow.Size.X, (int)renderWindow.Size.Y,State.activ));
 
             //Events anmelden
 
