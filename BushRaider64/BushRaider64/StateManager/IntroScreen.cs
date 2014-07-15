@@ -22,7 +22,6 @@ namespace BushRaider64
 
         public override void LoadContent()
         {
-
         }
 
         public override void Update(TimeSpan deltaTime)
