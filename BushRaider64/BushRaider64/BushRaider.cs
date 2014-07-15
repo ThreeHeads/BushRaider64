@@ -17,7 +17,6 @@ namespace BushRaider64
         private ScreenManager screenManager;
         public RenderWindow renderWindow;
         private Sprite background;
-        private SpriteFactory spriteFactory;
 
         //Camera
 
@@ -54,8 +53,7 @@ namespace BushRaider64
 
             //Test Sprite
 
-            spriteFactory = new SpriteFactory();
-            background = spriteFactory.createSprite(new IntRect((int)video.Width / 2, (int)video.Height / 2, (int)video.Width, (int)video.Height), "GameAssets/logo.png");
+            background = SpriteFactory.createSpriteCentered(new IntRect((int)video.Width / 2, (int)video.Height / 2, (int)video.Width, (int)video.Height), "GameAssets/logo.png");
 
             //GameTime Initialisieren
 

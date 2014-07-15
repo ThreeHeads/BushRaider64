@@ -62,7 +62,7 @@
     <Compile Include="ScreenManager\MenuScreen.cs" />
     <Compile Include="ScreenManager\PlayScreen.cs" />
     <Compile Include="ScreenManager\ScreenManager.cs" />
-    <Compile Include="SpriteFactory.cs" />
+    <Compile Include="Helper\SpriteFactory.cs" />
     <Compile Include="TileMap\Tile.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,9 +85,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helper\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
