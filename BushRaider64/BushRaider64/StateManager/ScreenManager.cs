@@ -48,7 +48,8 @@ namespace BushRaider64
             {
                 case input.menu:
                 {
-                    screenList[0].state = State.inactive; break;
+                    screenList[0].state = State.inactive;
+                    screenList[1].state = State.Active; break;
                 }
             }
         }
