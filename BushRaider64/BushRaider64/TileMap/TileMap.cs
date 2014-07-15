@@ -11,6 +11,9 @@ namespace BushRaider64
 {
     class TileMap
     {
+
+        // TODO: List -> Array (warum auch immer :P )
+
         private List<Tile> TileList;
         private int tileWidth;
         private int tileHeight;
