@@ -13,7 +13,7 @@ namespace BushRaider64
     {
         private Sprite IntroLogo;
 
-        public IntroScreen(int screenWidth, int screenHeight): base(screenWidth, screenHeight)
+        public IntroScreen(int screenWidth, int screenHeight,State state) : base(screenWidth, screenHeight, state)
         {
             IntroLogo = SpriteFactory.createSprite(new IntRect(0 ,0 ,screenWidth ,screenHeight), "GameAssets/logo.png");
         }

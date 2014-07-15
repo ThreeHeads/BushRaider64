@@ -16,7 +16,6 @@ namespace BushRaider64
 
         private ScreenManager screenManager;
         public RenderWindow renderWindow;
-        private Sprite background;
 
         //Camera
 
@@ -79,8 +78,6 @@ namespace BushRaider64
                     Console.WriteLine("Logic");
                 }
                 renderWindow.DispatchEvents();
-
-
                 this.Draw();
 
                 deltaTime = timer.Elapsed;
@@ -96,7 +93,7 @@ namespace BushRaider64
         public void Draw()
         {
             Console.WriteLine("Draw");
-
+            renderWindow.Clear(new Color(24,116,205));
             screenManager.Draw(renderWindow);
             renderWindow.Display();
         }

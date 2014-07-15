@@ -17,27 +17,36 @@ namespace BushRaider64
         RenderWindow renderWindow;
         List<Screen> stateList;
 
+        double testSwitch;
+
         public ScreenManager(RenderWindow renderWindow)
         {
             this.renderWindow = renderWindow;
 
             stateList = new List<Screen>();
-            stateList.Add(new IntroScreen((int)renderWindow.Size.X, (int)renderWindow.Size.Y));
+            stateList.Add(new IntroScreen((int)renderWindow.Size.X, (int)renderWindow.Size.Y,State.activ));
+            stateList.Add(new PlayScreen((int)renderWindow.Size.X, (int)renderWindow.Size.Y,State.inactive));
         }
 
         public void Update(TimeSpan deltaTime)
         {
-            foreach (Screen state in stateList)
+            foreach (Screen screen in stateList)
             {
-                state.Update(deltaTime);
+                if(screen.state == State.activ)
+                screen.Update(deltaTime);
             }
+            testSwitch += deltaTime.TotalSeconds;
+            if (testSwitch >= 3f)
+                stateList[0].state = State.inactive;
+
         }
 
         public void Draw(RenderWindow renderWindow)
         {
-            foreach (Screen state in stateList)
+            foreach (Screen screen in stateList)
             {
-                state.Draw(renderWindow);
+                if (screen.state == State.activ)
+                screen.Draw(renderWindow);
             }
         }
     }

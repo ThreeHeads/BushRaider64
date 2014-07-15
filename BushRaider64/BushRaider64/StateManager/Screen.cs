@@ -9,19 +9,22 @@ using SFML.Audio;
 
 namespace BushRaider64
 {
-    enum State { activ, inactive, paused}
+    public enum State { activ, inactive, paused}
 
     abstract class Screen
     {
-        public Screen(int screenWidth, int screenHeight)
+        public Screen(int screenWidth, int screenHeight, State state)
         {
             this.ScreenWidth = screenWidth;
             this.ScreenHeight = screenHeight;
+            this.state = state;
         }
 
         public event ScreenHandler stateChangeHandler;
 
         private int ScreenWidth, ScreenHeight;
+
+        public State state;
 
         abstract public void LoadContent();
 
