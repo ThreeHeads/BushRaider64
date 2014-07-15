@@ -36,7 +36,7 @@ namespace BushRaider64
             //Sprite estellen
 
             Texture texture = new Texture(fileName);
-            Sprite sprite = new Sprite(texture);
+            Sprite sprite = new Sprite(texture, new IntRect(rectangle.Left,rectangle.Top,(int)texture.Size.X, (int)texture.Size.Y));
 
             //Größe zur Auflösung anpassen
 
