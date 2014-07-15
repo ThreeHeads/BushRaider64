@@ -11,6 +11,8 @@ namespace BushRaider64
 {
     class IntroScreen : Screen
     {
+        private const double introDuration = 5f;
+        private double elapsed;
         private Sprite IntroLogo;
 
         public IntroScreen(int screenWidth, int screenHeight,State state) : base(screenWidth, screenHeight, state)
@@ -20,11 +22,20 @@ namespace BushRaider64
 
         public override void LoadContent()
         {
-           
+
         }
 
         public override void Update(TimeSpan deltaTime)
         {
+            elapsed += deltaTime.TotalSeconds;
+
+            if (introDuration >= elapsed)
+                onIntroEnd();
+        }
+
+        private void onIntroEnd()
+        {
+            NotifyScreenChangeEvent(input.menu);
         }
 
         public override void Draw(RenderWindow renderWindow)

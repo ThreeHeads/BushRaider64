@@ -13,11 +13,20 @@ namespace BushRaider64
 
     abstract class Screen
     {
+        public event ScreenHandler screenChange;
+
         public Screen(int screenWidth, int screenHeight, State state)
         {
             this.ScreenWidth = screenWidth;
             this.ScreenHeight = screenHeight;
             this.state = state;
+        }
+
+        public void NotifyScreenChangeEvent(input input)
+        {
+            var handler = screenChange;
+            if (handler != null)
+                handler(input);
         }
 
         public event ScreenHandler stateChangeHandler;

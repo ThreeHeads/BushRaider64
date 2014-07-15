@@ -67,7 +67,7 @@ namespace BushRaider64
 
         public void Update()
         {
-            while(renderWindow.IsOpen())
+            while (renderWindow.IsOpen())
             {
                 timeBank += deltaTime.TotalSeconds;
 
@@ -77,6 +77,7 @@ namespace BushRaider64
                     timeBank -= timeStep;
                     Console.WriteLine("Logic");
                 }
+
                 renderWindow.DispatchEvents();
                 this.Draw();
 
@@ -84,6 +85,26 @@ namespace BushRaider64
                 timer.Restart();
             }
         }
+
+        //public void Update()
+        //{
+        //    while (renderWindow.IsOpen())
+        //    {
+        //        timeBank += deltaTime.TotalSeconds;
+
+        //        while (timeBank >= timeStep)
+        //        {
+        //            screenManager.Update(deltaTime);
+        //            timeBank -= timeStep;
+        //        }
+
+        //        renderWindow.DispatchEvents();
+        //        this.Draw();
+
+        //        deltaTime = timer.Elapsed;
+        //        timer.Restart();
+        //    }
+        //}
 
         void OnClosed(object sender, EventArgs e)
         {
