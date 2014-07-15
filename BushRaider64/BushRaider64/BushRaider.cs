@@ -37,6 +37,11 @@ namespace BushRaider64
             VideoMode video = new VideoMode();
             video = VideoMode.DesktopMode;
 
+            renderWindow = new RenderWindow(video, "BushRaider", Styles.Default);
+            renderWindow.SetVisible(true);
+            renderWindow.SetVerticalSyncEnabled(true);
+            renderWindow.Closed += new EventHandler(OnClosed);
+
             //Debug Code
 
             foreach(VideoMode item in VideoMode.FullscreenModes)
@@ -44,16 +49,6 @@ namespace BushRaider64
                 Console.WriteLine(item.Width + " + " + item.Height + " + " + item.BitsPerPixel);
             }
             Console.WriteLine(VideoMode.DesktopMode.Width + " + " + VideoMode.DesktopMode.Height);
-
-
-            renderWindow = new RenderWindow(video, "BushRaider",Styles.Default);
-            renderWindow.SetVisible(true);
-            renderWindow.SetVerticalSyncEnabled(true);
-            renderWindow.Closed += new EventHandler(OnClosed);
-
-            //Test Sprite
-
-            background = SpriteFactory.createSpriteCentered(new IntRect((int)video.Width / 2, (int)video.Height / 2, (int)video.Width, (int)video.Height), "GameAssets/logo.png");
 
             //GameTime Initialisieren
 
@@ -66,6 +61,7 @@ namespace BushRaider64
             view = new View(new FloatRect(0, 0, VideoMode.DesktopMode.Width, VideoMode.DesktopMode.Height));
             renderWindow.SetView(view);
 
+            screenManager = new ScreenManager(renderWindow);
             this.Update();
 
         }
@@ -78,12 +74,14 @@ namespace BushRaider64
 
                 if (timeBank >= timeStep)
                 {
+                    screenManager.Update(deltaTime);
                     timeBank -= timeStep;
+                    Console.WriteLine("Logic");
                 }
-
                 renderWindow.DispatchEvents();
+
+
                 this.Draw();
-                renderWindow.Display();
 
                 deltaTime = timer.Elapsed;
                 timer.Restart();
@@ -97,8 +95,10 @@ namespace BushRaider64
 
         public void Draw()
         {
-            renderWindow.Clear(Color.Blue);
-            renderWindow.Draw(background);
+            Console.WriteLine("Draw");
+
+            screenManager.Draw(renderWindow);
+            renderWindow.Display();
         }
     }
 }
