@@ -69,11 +69,8 @@
     <Compile Include="InputManager\InputManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StateManager\Screen.cs" />
-    <Compile Include="StateManager\GUI_Elemente\Button.cs" />
     <Compile Include="StateManager\GUI_Elemente\GUIElement.cs" />
-    <Compile Include="StateManager\GUI_Elemente\Label.cs" />
-    <Compile Include="StateManager\GUI_Elemente\Window.cs" />
+    <Compile Include="StateManager\Screen.cs" />
     <Compile Include="StateManager\IntroScreen.cs" />
     <Compile Include="StateManager\MenuScreen.cs" />
     <Compile Include="StateManager\PlayScreen.cs" />
