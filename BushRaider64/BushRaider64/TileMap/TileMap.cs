@@ -17,14 +17,18 @@ namespace BushRaider64
         private List<Tile> TileList;
         private int tileWidth;
         private int tileHeight;
+        private int mapWidth;
+        private int mapHeight;
 
 
         // TODO: mapWidth, mapHeight - Dynamische Größe
 
-        public TileMap(int tileWidth, int tileHeight)
+        public TileMap(int tileWidth, int tileHeight, int mapWidth, int mapHeight)
         {
             this.tileWidth = tileWidth;
             this.tileHeight = tileHeight;
+            this.mapWidth = mapWidth;
+            this.mapHeight = mapHeight;
 
             TileList = new List<Tile>();
             TileList.Add(new Tile(tileWidth, tileHeight));
@@ -42,10 +46,10 @@ namespace BushRaider64
 
         public void Draw(RenderWindow renderWindow)
         {
-
+            
             //renderWindow.Size.X / Y
             
-            TileList[0].Draw(renderWindow);
+            TileList[0].DrawMap(renderWindow, mapWidth, mapHeight);
             
             //tile.Position = new Vector2f(renderWindow.Size.X-100, 0);
         }
