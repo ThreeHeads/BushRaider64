@@ -43,8 +43,6 @@ namespace BushRaider64
         //Zeichnet eine komplette Map aus der Tile Instanz
         public void DrawMap(RenderWindow renderWindow, int mapWidth, int mapHeight)
         {
-
-
             for (position_y = 0; position_y < mapHeight; position_y += 50)
             {
                 tileSprite.Position = new Vector2f(position_x, position_y);

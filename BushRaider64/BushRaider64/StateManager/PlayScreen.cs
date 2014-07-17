@@ -12,6 +12,7 @@ namespace BushRaider64
     class PlayScreen : Screen
     {
         TileMap TileMap;
+        TileMap.Texture texture;
 
         public PlayScreen(int screenWidth, int screenHeight, State state): base(screenWidth, screenHeight, state)
         {
@@ -29,7 +30,7 @@ namespace BushRaider64
 
         public override void Draw(RenderWindow renderWindow)
         {
-            TileMap.Draw(renderWindow);
+            TileMap.Draw(renderWindow, TileMap.Texture.snow);
             //renderWindow.Clear(Color.Red);
         }
     }

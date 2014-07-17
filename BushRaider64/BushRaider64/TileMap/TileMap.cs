@@ -12,16 +12,18 @@ namespace BushRaider64
     class TileMap
     {
 
-        // TODO: List -> Array (warum auch immer :P )
+        // TODO: List -> Array 
 
-        private List<Tile> TileList;
+        public List<Tile> TileList;
         private int tileWidth;
         private int tileHeight;
         private int mapWidth;
         private int mapHeight;
 
+        // TODO: Enum erstellen für Texturarten
 
-        // TODO: mapWidth, mapHeight - Dynamische Größe
+        public enum Texture { desert, snow, stone };
+        
 
         public TileMap(int tileWidth, int tileHeight, int mapWidth, int mapHeight)
         {
@@ -31,27 +33,25 @@ namespace BushRaider64
             this.mapHeight = mapHeight;
 
             TileList = new List<Tile>();
+
+            TileList.Add(new Tile(tileWidth, tileHeight));
             TileList.Add(new Tile(tileWidth, tileHeight));
         }
 
         public void LoadContent()
         {
             TileList[0].LoadContent(new Vector2f(0f, 0f), "GameAssets/desert.png");
-            
+            TileList[1].LoadContent(new Vector2f(0f, 0f), "GameAssets/snow.png");
         }
 
         public void Update(TimeSpan deltaTime)
         {
         }
 
-        public void Draw(RenderWindow renderWindow)
+        public void Draw(RenderWindow renderWindow, Texture texture)
         {
-            
-            //renderWindow.Size.X / Y
-            
-            TileList[0].DrawMap(renderWindow, mapWidth, mapHeight);
-            
-            //tile.Position = new Vector2f(renderWindow.Size.X-100, 0);
+            //int index = (int)texture;
+            TileList[(int)texture].DrawMap(renderWindow, mapWidth, mapHeight);
         }
 
     }
