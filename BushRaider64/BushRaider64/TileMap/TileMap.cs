@@ -22,7 +22,7 @@ namespace BushRaider64
 
         // TODO: Enum erstellen für Texturarten
 
-        public enum Texture { desert, snow, stone };
+        public enum Texture { desert, snow, };
         
 
         public TileMap(int tileWidth, int tileHeight, int mapWidth, int mapHeight)
