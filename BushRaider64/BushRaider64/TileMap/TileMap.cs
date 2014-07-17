@@ -21,13 +21,16 @@ namespace BushRaider64
             this.tileHeight = tileHeight;
 
             TileList = new List<Tile>();
-            TileList.Add(new Tile(tileWidth, tileHeight));
+
+            for (int i = 1; i < 10; i++)
+            {
+                TileList.Add(new Tile(tileWidth, tileHeight));
+            }
         }
 
         public void LoadContent()
         {
-            TileList[0].LoadContent(new Vector2f(0f, 0f), "GameAssets/desert.png");
-            //this.tile = SpriteFactory.createSprite(new IntRect(0, 0, 100, 100), "GameAssets/stone_cobble.jpg");
+                TileList[0].LoadContent(new Vector2f(0f, 0f), "GameAssets/desert.png");
         }
 
         public void Update(TimeSpan deltaTime)
@@ -36,12 +39,7 @@ namespace BushRaider64
 
         public void Draw(RenderWindow renderWindow)
         {
-
-            //renderWindow.Size.X / Y
-
-            TileList[0].Draw(renderWindow);
-            
-            //tile.Position = new Vector2f(renderWindow.Size.X-100, 0);
+                TileList[0].Draw(renderWindow);
         }
 
     }
