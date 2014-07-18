@@ -16,7 +16,7 @@ namespace BushRaider64
 
         public PlayScreen(int screenWidth, int screenHeight, State state): base(screenWidth, screenHeight, state)
         {
-            this.TileMap = new TileMap(50,50,500,500);
+            this.TileMap = new TileMap(50,50,3,3);
         }
 
         public override void LoadContent()
@@ -30,7 +30,7 @@ namespace BushRaider64
 
         public override void Draw(RenderWindow renderWindow)
         {
-            TileMap.DrawMap(renderWindow, TileMap.Texture.snow);
+            TileMap.DrawMap(renderWindow);
             //renderWindow.Clear(Color.Red);
         }
     }

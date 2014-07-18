@@ -19,6 +19,7 @@ namespace BushRaider64
         private int tileHeight;
         private int mapWidth;
         private int mapHeight;
+        private int draw_counter;
 
         private int position_x = 0;
         private int position_y = 0;
@@ -27,28 +28,37 @@ namespace BushRaider64
 
         public enum Texture { desert, snow, soil };
         
-
         public TileMap(int tileWidth, int tileHeight, int mapWidth, int mapHeight)
         {
             this.tileWidth = tileWidth;
             this.tileHeight = tileHeight;
-            this.mapWidth = mapWidth;
-            this.mapHeight = mapHeight;
+            this.mapWidth = mapWidth*tileWidth;
+            this.mapHeight = mapHeight*tileHeight;
 
             TileList = new List<Tile>();
+           
+           //Loop: Add einer Tile mit Positionsdaten
             
-            //TODO: Add++ für jede Textur
-            TileList.Add(new Tile(tileWidth, tileHeight));
-            TileList.Add(new Tile(tileWidth, tileHeight));
-            TileList.Add(new Tile(tileWidth, tileHeight));
+            for (position_y = 0; position_y < this.mapHeight; position_y += tileHeight)
+            {  
+                for (position_x = 0; position_x < this.mapWidth; position_x += tileWidth)
+                {
+                    TileList.Add(new Tile(new Vector2f(position_x, position_y), tileWidth, tileHeight));
+                    draw_counter++;
+                    
+                }
+            }    
         }
 
         public void LoadContent()
         {
-            //TODO: Index++ für jede Textur + Pfad
-            TileList[0].LoadContent(new Vector2f(0f, 0f), "GameAssets/desert.png");
-            TileList[1].LoadContent(new Vector2f(0f, 0f), "GameAssets/snow.png");
-            TileList[2].LoadContent(new Vector2f(0f, 0f), "GameAssets/soil.jpg");
+            for(int i = 0; i < draw_counter; i++)
+            {
+                TileList[i].LoadContent("GameAssets/soil.jpg");
+            }
+            
+            //TileList[1].LoadContent(new Vector2f(0f, 0f), "GameAssets/snow.png");
+            //TileList[2].LoadContent(new Vector2f(0f, 0f), "GameAssets/soil.jpg");
         }
 
         public void Update(TimeSpan deltaTime)
@@ -57,21 +67,13 @@ namespace BushRaider64
         }
 
         //Zeichnet eine komplette Map aus der Tile
-        public void DrawMap(RenderWindow renderWindow, Texture texture)
+
+        public void DrawMap(RenderWindow renderWindow)
         {
-            for (position_y = 0; position_y < mapHeight; position_y += 50)
+            for(int i = 0; i < draw_counter; i++)
             {
-                TileList[(int)texture].tileSprite.Position = new Vector2f(position_x, position_y);
-                renderWindow.Draw(TileList[(int)texture].tileSprite);
-                for (position_x = 0; position_x < mapWidth; position_x += 50)
-                {
-                    TileList[(int)texture].tileSprite.Position = new Vector2f(position_x, position_y);
-                    renderWindow.Draw(TileList[(int)texture].tileSprite);
-                }
+                TileList[i].Draw(renderWindow);
             }
         }
-
-       
-
     }
 }
