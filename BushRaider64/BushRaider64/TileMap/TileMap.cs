@@ -29,7 +29,8 @@ namespace BushRaider64
 
         // TODO: Enum erstellen für Texturarten
 
-        public enum Texture { desert, snow, soil };
+        public enum SpriteTexture { desert, snow, soil };
+        
         
         public TileMap(int tileWidth, int tileHeight, int mapWidth, int mapHeight)
         {
@@ -65,10 +66,29 @@ namespace BushRaider64
         }
 
         // Methode ändert Content bei angebener Koordinate
-        public void ChangeContent(int ID_x,int ID_y)
+        public void ChangeContent(int ID_x, int ID_y, SpriteTexture texture)
         {
             int i = SelectTile(ID_x, ID_y);
-            TileList[i].LoadContent("GameAssets/desert.png");
+
+            switch (texture)
+            {
+                case SpriteTexture.desert:
+                    {
+                        TileList[i].LoadContent("GameAssets/desert.png");
+                        break;
+                    }
+                case SpriteTexture.snow:
+                    {
+                        TileList[i].LoadContent("GameAssets/snow.png");
+                        break;
+                    }
+                case SpriteTexture.soil:
+                    {
+                        TileList[i].LoadContent("GameAssets/soil.jpg");
+                        break;
+                    }
+            }
+               
         }
 
         public void Update(TimeSpan deltaTime)
@@ -87,6 +107,7 @@ namespace BushRaider64
         }
 
         #region Klasseinterne Methoden
+
         private int SelectTile(int ID_x, int ID_y)
         {
             int i = 0;
