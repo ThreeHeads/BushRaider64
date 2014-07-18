@@ -45,11 +45,11 @@ namespace BushRaider64
             #region debug code
             //Debug Code
 
-            foreach (VideoMode item in VideoMode.FullscreenModes)
-            {
-                Console.WriteLine(item.Width + " + " + item.Height + " + " + item.BitsPerPixel);
-            }
-            Console.WriteLine(VideoMode.DesktopMode.Width + " + " + VideoMode.DesktopMode.Height);
+            //foreach (VideoMode item in VideoMode.FullscreenModes)
+            //{
+            //    Console.WriteLine(item.Width + " + " + item.Height + " + " + item.BitsPerPixel);
+            //}
+            //Console.WriteLine(VideoMode.DesktopMode.Width + " + " + VideoMode.DesktopMode.Height);
             #endregion
 
             //GameTime Initialisieren
@@ -80,7 +80,7 @@ namespace BushRaider64
                 {
                     screenManager.Update(deltaTime);
                     timeBank -= timeStep;
-                    Console.WriteLine("Logic");
+                    //Console.WriteLine("Logic");
                 }
 
                 renderWindow.DispatchEvents();
@@ -120,7 +120,7 @@ namespace BushRaider64
 
         public void Draw()
         {
-            Console.WriteLine("Draw");
+            //Console.WriteLine("Draw");
             renderWindow.Clear(new Color(24,116,205));
             screenManager.Draw(renderWindow);
             renderWindow.Display();

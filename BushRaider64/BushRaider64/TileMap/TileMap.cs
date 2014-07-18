@@ -11,7 +11,8 @@ namespace BushRaider64
 {
     class TileMap
     {
-
+        // TODO: ID für Tiles
+        // TODO: Methode für Zugriff auf Tile
         // TODO: List -> Array 
 
         public List<Tile> TileList;
@@ -22,6 +23,9 @@ namespace BushRaider64
 
         private int position_x = 0;
         private int position_y = 0;
+
+        private int ID_x;
+        private int ID_y;
 
         // TODO: Enum erstellen für Texturarten
 
@@ -39,13 +43,14 @@ namespace BushRaider64
            //Loop: Add einer Tile mit Positionsdaten
             
 
-            for (position_y = 0; position_y < this.mapHeight; position_y += tileHeight)
+            for (ID_y = 0, position_y = 0; position_y < this.mapHeight; position_y += tileHeight, ID_y++)
             {  
-                for (position_x = 0; position_x < this.mapWidth; position_x += tileWidth)
+                for (ID_x = 0, position_x = 0; position_x < this.mapWidth; position_x += tileWidth, ID_x++)
                 {
-                    TileList.Add(new Tile(new Vector2f(position_x , position_y), tileWidth, tileHeight));
+                    TileList.Add(new Tile(new Vector2f(position_x , position_y), tileWidth, tileHeight, ID_x, ID_y));
                 }
             }    
+
         }
 
         public void LoadContent()
@@ -57,6 +62,13 @@ namespace BushRaider64
             
             //TileList[1].LoadContent(new Vector2f(0f, 0f), "GameAssets/snow.png");
             //TileList[2].LoadContent(new Vector2f(0f, 0f), "GameAssets/soil.jpg");
+        }
+
+        // Methode ändert Content bei angebener Koordinate
+        public void ChangeContent(int ID_x,int ID_y)
+        {
+            int i = SelectTile(ID_x, ID_y);
+            TileList[i].LoadContent("GameAssets/desert.png");
         }
 
         public void Update(TimeSpan deltaTime)
@@ -74,6 +86,22 @@ namespace BushRaider64
             }
         }
 
+        #region Klasseinterne Methoden
+        private int SelectTile(int ID_x, int ID_y)
+        {
+            int i = 0;
+            foreach (var item in TileList)
+            {
+               i++;
+               if(item.ID_x == ID_x && item.ID_y == ID_y)
+               {
+                   return i-1;
+               }
+            }
+            return -1;
         }
+        #endregion   
+
     }
+}
 

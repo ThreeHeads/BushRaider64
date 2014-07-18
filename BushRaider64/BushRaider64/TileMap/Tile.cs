@@ -16,13 +16,17 @@ namespace BushRaider64
         public Vector2f position;
         private int tileWidth;
         private int tileHeight;
+        public int ID_x;
+        public int ID_y;
         
 
-        public Tile(Vector2f position, int tileWidth, int tileHeight)
+        public Tile(Vector2f position, int tileWidth, int tileHeight, int ID_x, int ID_y)
         {
             this.tileWidth = tileWidth;
             this.tileHeight = tileHeight;
             this.position = position;
+            this.ID_x = ID_x;
+            this.ID_y = ID_y;
         }
 
         public void LoadContent(string path)
