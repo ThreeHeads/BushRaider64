@@ -41,10 +41,11 @@ namespace BushRaider64
             renderWindow.SetVerticalSyncEnabled(true);
             renderWindow.Closed += new EventHandler(OnClosed);
 
+            
             #region debug code
             //Debug Code
 
-            foreach(VideoMode item in VideoMode.FullscreenModes)
+            foreach (VideoMode item in VideoMode.FullscreenModes)
             {
                 Console.WriteLine(item.Width + " + " + item.Height + " + " + item.BitsPerPixel);
             }

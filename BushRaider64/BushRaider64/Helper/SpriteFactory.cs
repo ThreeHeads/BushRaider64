@@ -50,9 +50,10 @@ namespace BushRaider64
         public static Sprite createSpriteNoScale(int width, int height, Vector2f position, string path)
         {
 
-            Sprite sprite = new Sprite(new Texture(path), new IntRect((int)position.X, (int)position.Y, width, height));
+            //Sprite sprite = new Sprite(new Texture(path), new IntRect((int)position.X, (int)position.Y, width, height));
+            Sprite sprite = new Sprite(new Texture(path));
             sprite.Position = position;
-            sprite.Texture.Smooth = true;
+            sprite.Texture.Smooth = false;
             return sprite;
         }
 

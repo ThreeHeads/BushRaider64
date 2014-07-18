@@ -13,16 +13,19 @@ namespace BushRaider64
     class Tile
     {
         public Sprite tileSprite;
+        public Vector2f position;
         private int tileWidth;
         private int tileHeight;
+        
 
-        public Tile(int tileWidth, int tileHeight)
+        public Tile(Vector2f position, int tileWidth, int tileHeight)
         {
             this.tileWidth = tileWidth;
             this.tileHeight = tileHeight;
+            this.position = position;
         }
 
-        public void LoadContent(Vector2f position, string path)
+        public void LoadContent(string path)
         {
             tileSprite = SpriteFactory.createSpriteNoScale(tileWidth, tileHeight, position, path);
         }
@@ -35,24 +38,5 @@ namespace BushRaider64
         {
             renderWindow.Draw(tileSprite);
         }
-
-
-       
-        //public void DrawMap(RenderWindow renderWindow, int mapWidth, int mapHeight)
-        //{
-        //    for (position_y = 0; position_y < mapHeight; position_y += 50)
-        //    {
-        //        tileSprite.Position = new Vector2f(position_x, position_y);
-        //        renderWindow.Draw(tileSprite);
-        //        for(position_x = 0; position_x < mapWidth; position_x += 50)
-        //        {
-        //            tileSprite.Position = new Vector2f(position_x, position_y);
-        //            renderWindow.Draw(tileSprite);
-        //        }
-        //    }
-
-            //Console.WriteLine("Position_x:" + position_x);
-            //Console.WriteLine("Position_y:" + position_y);
-
     }
 }
