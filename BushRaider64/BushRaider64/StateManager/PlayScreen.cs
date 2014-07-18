@@ -30,7 +30,7 @@ namespace BushRaider64
 
         public override void Draw(RenderWindow renderWindow)
         {
-            TileMap.DrawMap(renderWindow, TileMap.Texture.snow);
+            TileMap.DrawMap(renderWindow, TileMap.Texture.soil);
             //renderWindow.Clear(Color.Red);
         }
     }
