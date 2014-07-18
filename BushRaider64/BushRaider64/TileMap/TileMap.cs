@@ -70,10 +70,12 @@ namespace BushRaider64
 
         public void DrawMap(RenderWindow renderWindow)
         {
-            for(int i = 0; i < draw_counter; i++)
-            {
-                TileList[i].Draw(renderWindow);
-            }
+            TileList[1].Draw(renderWindow);
+            Console.WriteLine(TileList[1].position + " tileWidth: " + tileWidth + " tileHeight: " + tileHeight);
+            //for(int i = 0; i < draw_counter; i++)
+            //{
+            //    TileList[i].Draw(renderWindow);
+            //}
         }
     }
 }
