@@ -13,7 +13,6 @@ namespace BushRaider64
     {
         TileMap TileMap;
         
-
         public PlayScreen(int screenWidth, int screenHeight, State state): base(screenWidth, screenHeight, state)
         {
             this.TileMap = new TileMap(50 ,50, 10, 10);
@@ -22,6 +21,16 @@ namespace BushRaider64
         public override void LoadContent()
         {
             TileMap.LoadContent(TileMap.SpriteTexture.soil);
+            TileMap.ChangeTexture(0, 0, TileMap.SpriteTexture.snow);
+            TileMap.ChangeLocation(0, 0, 9, 8);
+            
+            
+            
+        }
+
+        public void ChangeContent() // Bitte noch bei screenhandler usw einfügen!
+        {
+        
         }
 
         public override void Update(TimeSpan deltaTime)
@@ -31,8 +40,6 @@ namespace BushRaider64
         public override void Draw(RenderWindow renderWindow)
         {
             TileMap.DrawMap(renderWindow);
-            TileMap.ChangeContent(2, 2, TileMap.SpriteTexture.snow);
-            TileMap.ChangeContent(4, 2, TileMap.SpriteTexture.desert);
             //renderWindow.Clear(Color.Red);
         }
     }

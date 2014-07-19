@@ -12,7 +12,6 @@ namespace BushRaider64
     class TileMap
     {
         
-        
         // TODO: List -> Array 
 
         public List<Tile> TileList;
@@ -24,8 +23,8 @@ namespace BushRaider64
         private int position_x = 0;
         private int position_y = 0;
 
-        private int ID_x;
-        private int ID_y;
+        private int Coord_x;
+        private int Coord_y;
 
         // TODO: Enum erstellen für Texturarten
 
@@ -43,11 +42,11 @@ namespace BushRaider64
            //Loop: Add einer Tile mit Positionsdaten
             
 
-            for (ID_y = 0, position_y = 0; position_y < this.mapHeight; position_y += tileHeight, ID_y++)
+            for (Coord_y = 0, position_y = 0; position_y < this.mapHeight; position_y += tileHeight, Coord_y++)
             {  
-                for (ID_x = 0, position_x = 0; position_x < this.mapWidth; position_x += tileWidth, ID_x++)
+                for (Coord_x = 0, position_x = 0; position_x < this.mapWidth; position_x += tileWidth, Coord_x++)
                 {
-                    TileList.Add(new Tile(new Vector2f(position_x , position_y), tileWidth, tileHeight, ID_x, ID_y));
+                    TileList.Add(new Tile(new Vector2f(position_x , position_y), tileWidth, tileHeight, Coord_x, Coord_y));
                 }
             }    
 
@@ -78,38 +77,16 @@ namespace BushRaider64
             }
         }
 
-        // Methode ändert Content bei angebener Koordinate
-        public int ChangeContent(int ID_x, int ID_y, SpriteTexture texture)
+        // Methode ändert Textur bei angebener Koordinate
+        public void ChangeTexture(int Coord_x, int Coord_y, SpriteTexture texture)
         {
-            int i = TileSelector.SelectTile(ID_x, ID_y, TileList);
-            if (i == -1)
-            {
-                Console.WriteLine("ChangeContent(): Keine Tile auf der Koordinate {0} | {1}", ID_x, ID_y);
-                return i;
-            }
-               
-
-
-            switch (texture)
-            {
-                case SpriteTexture.desert:
-                    {
-                        TileList[i].LoadContent("GameAssets/desert.png");
-                        break;
-                    }
-                case SpriteTexture.snow:
-                    {
-                        TileList[i].LoadContent("GameAssets/snow.png");
-                        break;
-                    }
-                case SpriteTexture.soil:
-                    {
-                        TileList[i].LoadContent("GameAssets/soil.jpg");
-                        break;
-                    }
-            }
-            return 0;
-               
+            TileEditor.ChangeTexture(TileList, Coord_x, Coord_y, texture);     
+        }
+        
+        // Methode ändert momentane Position der Tile
+        public void ChangeLocation(int Coord_x, int Coord_y, int newCoord_x, int newCoord_y)
+        {
+            TileEditor.ChangeLocation(TileList, Coord_x, Coord_y, newCoord_x, newCoord_y);
         }
 
         public void Update(TimeSpan deltaTime)
