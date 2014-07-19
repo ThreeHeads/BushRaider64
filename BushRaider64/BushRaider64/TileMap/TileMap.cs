@@ -54,15 +54,29 @@ namespace BushRaider64
 
         }
 
-        public void LoadContent()
+        public void LoadContent(SpriteTexture texture)
         {
             for(int i = 0; i < TileList.Count; i++)
             {
-                TileList[i].LoadContent("GameAssets/soil.jpg");
+                switch (texture)
+                {
+                    case SpriteTexture.desert:
+                        {
+                            TileList[i].LoadContent("GameAssets/desert.png");
+                            break;
+                        }
+                    case SpriteTexture.snow:
+                        {
+                            TileList[i].LoadContent("GameAssets/snow.png");
+                            break;
+                        }
+                    case SpriteTexture.soil:
+                        {
+                            TileList[i].LoadContent("GameAssets/soil.jpg");
+                            break;
+                        }
+                }
             }
-            
-            //TileList[1].LoadContent(new Vector2f(0f, 0f), "GameAssets/snow.png");
-            //TileList[2].LoadContent(new Vector2f(0f, 0f), "GameAssets/soil.jpg");
         }
 
         // Methode ändert Content bei angebener Koordinate

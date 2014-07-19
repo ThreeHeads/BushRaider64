@@ -21,7 +21,7 @@ namespace BushRaider64
 
         public override void LoadContent()
         {
-            TileMap.LoadContent();
+            TileMap.LoadContent(TileMap.SpriteTexture.snow);
         }
 
         public override void Update(TimeSpan deltaTime)
