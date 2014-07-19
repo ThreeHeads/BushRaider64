@@ -16,12 +16,12 @@ namespace BushRaider64
 
         public PlayScreen(int screenWidth, int screenHeight, State state): base(screenWidth, screenHeight, state)
         {
-            this.TileMap = new TileMap(50 ,50, 20, 20);
+            this.TileMap = new TileMap(50 ,50, 10, 10);
         }
 
         public override void LoadContent()
         {
-            TileMap.LoadContent(TileMap.SpriteTexture.snow);
+            TileMap.LoadContent(TileMap.SpriteTexture.soil);
         }
 
         public override void Update(TimeSpan deltaTime)

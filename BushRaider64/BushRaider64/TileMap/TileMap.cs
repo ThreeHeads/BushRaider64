@@ -11,8 +11,8 @@ namespace BushRaider64
 {
     class TileMap
     {
-        // TODO: ID für Tiles
-        // TODO: Methode für Zugriff auf Tile
+        
+        
         // TODO: List -> Array 
 
         public List<Tile> TileList;
@@ -30,8 +30,7 @@ namespace BushRaider64
         // TODO: Enum erstellen für Texturarten
 
         public enum SpriteTexture { desert, snow, soil };
-        
-        
+             
         public TileMap(int tileWidth, int tileHeight, int mapWidth, int mapHeight)
         {
             this.tileWidth = tileWidth;
@@ -80,9 +79,16 @@ namespace BushRaider64
         }
 
         // Methode ändert Content bei angebener Koordinate
-        public void ChangeContent(int ID_x, int ID_y, SpriteTexture texture)
+        public int ChangeContent(int ID_x, int ID_y, SpriteTexture texture)
         {
-            int i = SelectTile(ID_x, ID_y);
+            int i = TileSelector.SelectTile(ID_x, ID_y, TileList);
+            if (i == -1)
+            {
+                Console.WriteLine("ChangeContent(): Keine Tile auf der Koordinate {0} | {1}", ID_x, ID_y);
+                return i;
+            }
+               
+
 
             switch (texture)
             {
@@ -102,6 +108,7 @@ namespace BushRaider64
                         break;
                     }
             }
+            return 0;
                
         }
 
@@ -111,7 +118,6 @@ namespace BushRaider64
         }
 
         //Zeichnet eine komplette Map aus der Tile
-
         public void DrawMap(RenderWindow renderWindow)
         {
             foreach (var item in TileList)
@@ -119,24 +125,6 @@ namespace BushRaider64
                 item.Draw(renderWindow);
             }
         }
-
-        #region Klasseinterne Methoden
-
-        private int SelectTile(int ID_x, int ID_y)
-        {
-            int i = 0;
-            foreach (var item in TileList)
-            {
-               i++;
-               if(item.ID_x == ID_x && item.ID_y == ID_y)
-               {
-                   return i-1;
-               }
-            }
-            return -1;
-        }
-        #endregion   
-
     }
 }
 
