@@ -82,20 +82,24 @@ namespace BushRaider64
             // Austausch von Vector2f Pos-Angaben und Grid Koordinaten
             //Known Bug: TileWidth und Length setzen sich auf GameAssets Ursprung zurück
 
+            Console.WriteLine("temp_pos wird TileList[{0}]'s Vector Position: {1} zugewiesen.", origin, TileList[origin].position);
             temp_pos = TileList[origin].position;
-            Console.WriteLine("temp_pos wird {0} | {1}'s Vector Position: {2} zugewiesen.", Coord_x, Coord_y, TileList[origin].position);
+            Console.WriteLine("TileList[{0}]'s Position: {1} wird mit TileList[{2}]'s Vector Position: {3} ersetzt.", origin, TileList[origin].position, target, TileList[target].position);
             TileList[origin].LoadContent(TileList[target].position);
-            Console.WriteLine("{0} | {1}'s Position: {2} wird mit {3} | {4}'s Vector Position: {5} ersetzt.", Coord_x, Coord_y, temp_pos, newCoord_x, newCoord_y, TileList[target].position);
+            Console.WriteLine("TileList[{0}]'s Position: {1} wird mit temp_pos's Vector Position: {3} ersetzt.", target, TileList[target].position, origin, temp_pos);
             TileList[target].LoadContent(temp_pos);
 
+            Console.WriteLine("TileList[{0}]'s Coord wird zu {1} | {2}", target, Coord_x, Coord_y);
             TileList[target].Coord_x = Coord_x;
             TileList[target].Coord_y = Coord_y;
+            Console.WriteLine("TileList[{0}]'s Coord wird zu {1} | {2}", origin, newCoord_x, newCoord_y);
             TileList[origin].Coord_x = newCoord_x;
             TileList[origin].Coord_y = newCoord_y;
 
-            
+            Console.WriteLine("Endstellungen: \nTileList[{0}]'s Position = {1}", origin, TileList[origin].position);
+            Console.WriteLine("TileList[{0}]'s Position = {1}", target, TileList[target].position);
 
-            
+            Console.WriteLine("----");
 
             return 0;
         }
