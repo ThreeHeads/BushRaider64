@@ -22,13 +22,12 @@ namespace BushRaider64
         {
             TileMap.LoadContent(TileMap.SpriteTexture.soil);
             TileMap.ChangeTexture(0, 0, TileMap.SpriteTexture.snow);
-            TileMap.ChangeLocation(0, 0, 1, 0);
-            TileMap.ChangeLocation(0, 0, 1, 0);
+            TileMap.ChangeLocation(0, 0, 1, 1);
         }
 
         public void ChangeContent() // Bitte noch bei screenhandler usw einfügen!
         {
-        
+            
         }
 
         public override void Update(TimeSpan deltaTime)

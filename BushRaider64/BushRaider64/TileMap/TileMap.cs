@@ -80,13 +80,16 @@ namespace BushRaider64
         // Methode ändert Textur bei angebener Koordinate
         public void ChangeTexture(int Coord_x, int Coord_y, SpriteTexture texture)
         {
-            TileEditor.ChangeTexture(TileList, Coord_x, Coord_y, texture);     
+            TileEditor.ChangeTexture(TileList, Coord_x, Coord_y, texture);
         }
         
         // Methode ändert momentane Position der Tile
         public void ChangeLocation(int Coord_x, int Coord_y, int newCoord_x, int newCoord_y)
         {
             TileEditor.ChangeLocation(TileList, Coord_x, Coord_y, newCoord_x, newCoord_y);
+
+            TileEditor.TileInfo(0, 0, TileList);
+            TileEditor.TileInfo(1, 1, TileList);
         }
 
         public void Update(TimeSpan deltaTime)

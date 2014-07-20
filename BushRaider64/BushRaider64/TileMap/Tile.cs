@@ -18,7 +18,7 @@ namespace BushRaider64
         public int tileHeight;
         public int Coord_x;
         public int Coord_y;
-        string path;
+        public string path;
         
 
         public Tile(Vector2f position, int tileWidth, int tileHeight, int Coord_x, int Coord_y)
@@ -36,7 +36,7 @@ namespace BushRaider64
             tileSprite = SpriteFactory.createSpriteNoScale(tileWidth, tileHeight, position, path);
         }
 
-        public void LoadContent(Vector2f position)
+        public void RefreshContent()
         {
             tileSprite = SpriteFactory.createSpriteNoScale(tileWidth, tileHeight, position, path);
         }
