@@ -12,6 +12,7 @@ namespace BushRaider64
     static class TileEditor
     {
 
+        // Auswahlloop für eine Tile bei der ID Coord_x | Coord_y
         private static int SelectTile(int Coord_x, int Coord_y, List<Tile> TileList)
         {
             int i = 0;
@@ -58,6 +59,7 @@ namespace BushRaider64
             return 0;
 
         }
+        // Wechselt den Ort der Tile Vom Koordinate 1 zu 2
         public static int ChangeLocation(List<Tile> TileList, int Coord_x, int Coord_y, int newCoord_x, int newCoord_y)
         {
             Vector2f temp_pos;
@@ -87,16 +89,18 @@ namespace BushRaider64
             TileList[origin].position = TileList[target].position; // Vector Positionen austauschen
             TileList[origin].Coord_x = newCoord_x; // Coord IDs austauschen
             TileList[origin].Coord_y = newCoord_y; // Coord IDs austauschen
-            TileList[origin].RefreshContent(); // komplette Instanze mit neuen Werte refreshen (Sprite Erzeugung refreshen)
+            //TileList[origin].RefreshContent(); // komplette Instanze mit neuen Werte refreshen (Sprite Erzeugung refreshen)
 
             TileList[target].position = temp_pos;
             TileList[target].Coord_x = temp_coordx;
             TileList[target].Coord_y = temp_coordy;
-            TileList[target].RefreshContent();
+            //TileList[target].RefreshContent();
 
             return 0;
         }
 
+
+        // Gibt komplette Infos über eine Tile wieder
         public static void TileInfo(int Coord_x, int Coord_y, List<Tile> TileList)
         {
             int index = SelectTile(Coord_x,Coord_y, TileList);

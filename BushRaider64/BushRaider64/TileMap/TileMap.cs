@@ -11,7 +11,6 @@ namespace BushRaider64
 {
     class TileMap
     {
-        
         // TODO: List -> Array 
 
         public List<Tile> TileList;
@@ -26,9 +25,7 @@ namespace BushRaider64
         private int Coord_x;
         private int Coord_y;
 
-        // TODO: Enum erstellen für Texturarten
-
-        public enum SpriteTexture { desert, snow, soil };
+        public enum SpriteTexture { desert, snow, soil, cobble };
              
         public TileMap(int tileWidth, int tileHeight, int mapWidth, int mapHeight)
         {
@@ -54,25 +51,22 @@ namespace BushRaider64
 
         public void LoadContent(SpriteTexture texture)
         {
-            for(int i = 0; i < TileList.Count; i++)
+            for (int i = 0; i < TileList.Count; i++)
             {
                 switch (texture)
                 {
                     case SpriteTexture.desert:
-                        {
-                            TileList[i].LoadContent("GameAssets/desert.png");
+                            TileList[i].LoadContent("desert");
                             break;
-                        }
                     case SpriteTexture.snow:
-                        {
-                            TileList[i].LoadContent("GameAssets/snow.png");
+                            TileList[i].LoadContent("snow");
                             break;
-                        }
                     case SpriteTexture.soil:
-                        {
-                            TileList[i].LoadContent("GameAssets/soil.jpg");
+                            TileList[i].LoadContent("soil");
                             break;
-                        }
+                    case SpriteTexture.cobble:
+                            TileList[i].LoadContent("cobble");
+                            break;
                 }
             }
         }
@@ -87,9 +81,6 @@ namespace BushRaider64
         public void ChangeLocation(int Coord_x, int Coord_y, int newCoord_x, int newCoord_y)
         {
             TileEditor.ChangeLocation(TileList, Coord_x, Coord_y, newCoord_x, newCoord_y);
-
-            //TileEditor.TileInfo(0, 0, TileList);
-            //TileEditor.TileInfo(1, 1, TileList);
         }
 
         public void Update(TimeSpan deltaTime)

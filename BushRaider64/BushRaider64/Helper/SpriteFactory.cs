@@ -58,6 +58,17 @@ namespace BushRaider64
             return sprite;
         }
 
+        // Überladung ohne PositionsParameter ~ Charlie
+        public static Sprite createSpriteNoScale(int width, int height, string path)
+        {
+
+            //Sprite sprite = new Sprite(new Texture(path), new IntRect((int)position.X, (int)position.Y, width, height));
+            Sprite sprite = new Sprite(new Texture(path));
+            sprite.Scale = getScaleVector(50, 50, 64, 64);
+            sprite.Texture.Smooth = true;
+            return sprite;
+        }
+
 
         private static Vector2f getScaleVector(float baseWidth, float baseHeight, int newWidth, int newHeight)
         {

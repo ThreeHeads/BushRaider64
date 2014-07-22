@@ -18,7 +18,9 @@ namespace BushRaider64
         public int tileHeight;
         public int Coord_x;
         public int Coord_y;
+        public string texture;
         public string path;
+
         
 
         public Tile(Vector2f position, int tileWidth, int tileHeight, int Coord_x, int Coord_y)
@@ -28,12 +30,13 @@ namespace BushRaider64
             this.position = position;
             this.Coord_x = Coord_x;
             this.Coord_y = Coord_y;
+
         }
 
-        public void LoadContent(string path)
+        public void LoadContent(string texture)
         {
-            this.path = path;
-            tileSprite = SpriteFactory.createSpriteNoScale(tileWidth, tileHeight, position, path);
+            this.texture = texture;
+            //tileSprite = SpriteFactory.createSpriteNoScale(tileWidth, tileHeight, position, path);
         }
 
         public void RefreshContent()
@@ -47,7 +50,31 @@ namespace BushRaider64
 
         public void Draw(RenderWindow renderWindow)
         {
-            renderWindow.Draw(tileSprite);
+
+            Material.cobble.Position = position;
+            renderWindow.Draw(Material.cobble);
+            switch (texture)
+            {
+                case "soil":
+                        Material.soil.Position = position;
+                        renderWindow.Draw(Material.soil);
+                        break;
+                case "desert":
+                        Material.desert.Position = position;
+                        renderWindow.Draw(Material.desert);
+                        break;
+                case "snow":
+                        Material.snow.Position = position;
+                        renderWindow.Draw(Material.snow);
+                        break;
+                case "cobble":
+                        Material.cobble.Position = position;
+                        renderWindow.Draw(Material.cobble);
+                        break;
+                default:
+                    Console.WriteLine(texture);
+                    break;
+            }        
         }
     }
 }

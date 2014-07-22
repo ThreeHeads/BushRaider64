@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BushRaider.cs" />
+    <Compile Include="Helper\Material.cs" />
     <Compile Include="Helper\TileEditor.cs" />
     <Compile Include="InputManager\InputManager.cs" />
     <Compile Include="Program.cs" />
