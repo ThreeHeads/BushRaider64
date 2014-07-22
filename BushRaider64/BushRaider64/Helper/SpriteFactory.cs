@@ -53,7 +53,8 @@ namespace BushRaider64
             //Sprite sprite = new Sprite(new Texture(path), new IntRect((int)position.X, (int)position.Y, width, height));
             Sprite sprite = new Sprite(new Texture(path));
             sprite.Position = position;
-            sprite.Texture.Smooth = false;
+            sprite.Scale = getScaleVector(50, 50, 64, 64);
+            sprite.Texture.Smooth = true;
             return sprite;
         }
 
