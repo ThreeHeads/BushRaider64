@@ -22,7 +22,8 @@ namespace BushRaider64
         {
             TileMap.LoadContent(TileMap.SpriteTexture.soil);
             TileMap.ChangeTexture(0, 0, TileMap.SpriteTexture.snow);
-            TileMap.ChangeLocation(0, 0, 1, 1);
+            TileMap.ChangeLocation(0, 0, 10, 10);
+            TileMap.ChangeTexture(9, 9, TileMap.SpriteTexture.desert);
         }
 
         public void ChangeContent() // Bitte noch bei screenhandler usw einfügen!

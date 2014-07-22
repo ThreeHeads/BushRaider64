@@ -88,8 +88,8 @@ namespace BushRaider64
         {
             TileEditor.ChangeLocation(TileList, Coord_x, Coord_y, newCoord_x, newCoord_y);
 
-            TileEditor.TileInfo(0, 0, TileList);
-            TileEditor.TileInfo(1, 1, TileList);
+            //TileEditor.TileInfo(0, 0, TileList);
+            //TileEditor.TileInfo(1, 1, TileList);
         }
 
         public void Update(TimeSpan deltaTime)

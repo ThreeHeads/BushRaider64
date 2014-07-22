@@ -68,7 +68,7 @@ namespace BushRaider64
             int origin = SelectTile(Coord_x, Coord_y, TileList);
             if (origin == -1)
             {
-                Console.WriteLine("ChangeLocation(): Keine Tile auf der Koordinate oder Außerhalb der Map Border {0} | {1}", Coord_x, Coord_y);
+                Console.WriteLine("ChangeLocation({0} | {1},good,good): Keine Tile auf der Koordinate \noder Außerhalb der Map Border.", Coord_x, Coord_y);
                 return origin;
             }
 
@@ -76,7 +76,7 @@ namespace BushRaider64
             int target = SelectTile(newCoord_x, newCoord_y, TileList);
             if (target == -1)
             {
-                Console.WriteLine("ChangeLocation(): Keine Tile auf der Koordinate oder Außerhalb der Map Border {0} | {1}", newCoord_x, newCoord_y);
+                Console.WriteLine("ChangeLocation(good,good, {0} | {1}): Keine Tile auf der Koordinate \noder Außerhalb der Map Border.", newCoord_x, newCoord_y);
                 return target;
             }
 
@@ -84,10 +84,9 @@ namespace BushRaider64
             temp_coordx = TileList[origin].Coord_x;
             temp_coordy = TileList[origin].Coord_y;
 
-
             TileList[origin].position = TileList[target].position; // Vector Positionen austauschen
             TileList[origin].Coord_x = newCoord_x; // Coord IDs austauschen
-            TileList[origin].Coord_x = newCoord_y; // Coord IDs austauschen
+            TileList[origin].Coord_y = newCoord_y; // Coord IDs austauschen
             TileList[origin].RefreshContent(); // komplette Instanze mit neuen Werte refreshen (Sprite Erzeugung refreshen)
 
             TileList[target].position = temp_pos;
@@ -100,7 +99,7 @@ namespace BushRaider64
 
         public static void TileInfo(int Coord_x, int Coord_y, List<Tile> TileList)
         {
-            int index = SelectTile(Coord_x, Coord_y, TileList);
+            int index = SelectTile(Coord_x,Coord_y, TileList);
 
             Console.WriteLine("TileList[{0}]: MapPosition: {1}\nCoord ID: ({2} | {3})\nTileWidth: {4}\nTileHeight: {5}\nSprite: {6}\n\n",
                 index, TileList[index].position, TileList[index].Coord_x, TileList[index].Coord_y, TileList[index].tileWidth, TileList[index].tileHeight, TileList[index].path);
