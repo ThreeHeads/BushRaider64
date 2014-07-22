@@ -68,7 +68,7 @@ namespace BushRaider64
             int origin = SelectTile(Coord_x, Coord_y, TileList);
             if (origin == -1)
             {
-                Console.WriteLine("ChangeLocation({0} | {1},good,good): Keine Tile auf der Koordinate \noder Außerhalb der Map Border.", Coord_x, Coord_y);
+                Console.WriteLine("ChangeLocation({0},{1},good,good): Keine Tile auf der Koordinate \noder Außerhalb der Map Border.", Coord_x, Coord_y);
                 return origin;
             }
 
@@ -76,7 +76,7 @@ namespace BushRaider64
             int target = SelectTile(newCoord_x, newCoord_y, TileList);
             if (target == -1)
             {
-                Console.WriteLine("ChangeLocation(good,good, {0} | {1}): Keine Tile auf der Koordinate \noder Außerhalb der Map Border.", newCoord_x, newCoord_y);
+                Console.WriteLine("ChangeLocation(good,good,{0},{1}): Keine Tile auf der Koordinate \noder Außerhalb der Map Border.", newCoord_x, newCoord_y);
                 return target;
             }
 
@@ -101,8 +101,8 @@ namespace BushRaider64
         {
             int index = SelectTile(Coord_x,Coord_y, TileList);
 
-            Console.WriteLine("TileList[{0}]: MapPosition: {1}\nCoord ID: ({2} | {3})\nTileWidth: {4}\nTileHeight: {5}\nSprite: {6}\n\n",
-                index, TileList[index].position, TileList[index].Coord_x, TileList[index].Coord_y, TileList[index].tileWidth, TileList[index].tileHeight, TileList[index].path);
+            Console.WriteLine("TileList[{0}]: MapPosition: {1}\nCoord ID: ({2} | {3})\nTileWidth: {4}\nTileHeight: {5}\nSprite: {6}\nSprite Width: {7} - Height: {8}\n",
+                index, TileList[index].position, TileList[index].Coord_x, TileList[index].Coord_y, TileList[index].tileWidth, TileList[index].tileHeight, TileList[index].path, TileList[index].tileWidth, TileList[index].tileHeight);
         }
     }
 }

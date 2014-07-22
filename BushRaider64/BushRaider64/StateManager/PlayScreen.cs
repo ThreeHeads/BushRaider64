@@ -21,9 +21,8 @@ namespace BushRaider64
         public override void LoadContent()
         {
             TileMap.LoadContent(TileMap.SpriteTexture.soil);
-            TileMap.ChangeTexture(0, 0, TileMap.SpriteTexture.snow);
-            TileMap.ChangeLocation(0, 0, 10, 10);
             TileMap.ChangeTexture(9, 9, TileMap.SpriteTexture.desert);
+            TileEditor.TileInfo(9, 9, TileMap.TileList);
         }
 
         public void ChangeContent() // Bitte noch bei screenhandler usw einfügen!
