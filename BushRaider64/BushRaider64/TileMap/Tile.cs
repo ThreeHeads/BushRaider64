@@ -14,34 +14,20 @@ namespace BushRaider64
     {
         public Sprite tileSprite;
         public Vector2f position;
-        public int tileWidth;
-        public int tileHeight;
         public int Coord_x;
         public int Coord_y;
         public string texture;
-        public string path;
 
-        
-
-        public Tile(Vector2f position, int tileWidth, int tileHeight, int Coord_x, int Coord_y)
+        public Tile(Vector2f position, int Coord_x, int Coord_y)
         {
-            this.tileWidth = tileWidth;
-            this.tileHeight = tileHeight;
             this.position = position;
             this.Coord_x = Coord_x;
             this.Coord_y = Coord_y;
-
         }
 
         public void LoadContent(string texture)
         {
             this.texture = texture;
-            //tileSprite = SpriteFactory.createSpriteNoScale(tileWidth, tileHeight, position, path);
-        }
-
-        public void RefreshContent()
-        {
-            tileSprite = SpriteFactory.createSpriteNoScale(tileWidth, tileHeight, position, path);
         }
 
         public void Update(TimeSpan deltaTime)

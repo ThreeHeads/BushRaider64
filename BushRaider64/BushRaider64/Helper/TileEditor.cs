@@ -9,25 +9,10 @@ using SFML.Audio;
 
 namespace BushRaider64
 {
+    //TODO: TileInfo noch mit TileWidth/Height versehen
     static class TileEditor
     {
-
-        // Auswahlloop für eine Tile bei der ID Coord_x | Coord_y
-        private static int SelectTile(int Coord_x, int Coord_y, List<Tile> TileList)
-        {
-            int i = 0;
-            foreach (var item in TileList)
-            {
-                i++;
-                if (item.Coord_x == Coord_x && item.Coord_y == Coord_y)
-                {
-                    return i - 1;
-                }
-            }
-            Console.WriteLine("Tile nicht gefunden!");
-            return -1;
-        }
-         
+        // Haupt-Methoden
         // Wechselt den Content einer Tile über die Argumente X Koordinate, Y Koordiante
         public static int ChangeTexture(List<Tile> TileList, int Coord_x, int Coord_y, TileMap.SpriteTexture texture)
         {
@@ -86,24 +71,42 @@ namespace BushRaider64
             TileList[origin].position = TileList[target].position; // Vector Positionen austauschen
             TileList[origin].Coord_x = newCoord_x; // Coord IDs austauschen
             TileList[origin].Coord_y = newCoord_y; // Coord IDs austauschen
-            //TileList[origin].RefreshContent(); // komplette Instanze mit neuen Werte refreshen (Sprite Erzeugung refreshen)
+           
 
             TileList[target].position = temp_pos;
             TileList[target].Coord_x = temp_coordx;
             TileList[target].Coord_y = temp_coordy;
-            //TileList[target].RefreshContent();
+
+            
+            
 
             return 0;
         }
 
-
+        // Hilfs-Methoden
         // Gibt komplette Infos über eine Tile wieder
         public static void TileInfo(int Coord_x, int Coord_y, List<Tile> TileList)
         {
             int index = SelectTile(Coord_x,Coord_y, TileList);
 
-            Console.WriteLine("TileList[{0}]: MapPosition: {1}\nCoord ID: ({2} | {3})\nTileWidth: {4}\nTileHeight: {5}\nSprite: {6}\nSprite Width: {7} - Height: {8}\n",
-                index, TileList[index].position, TileList[index].Coord_x, TileList[index].Coord_y, TileList[index].tileWidth, TileList[index].tileHeight, TileList[index].path, TileList[index].tileWidth, TileList[index].tileHeight);
+            Console.WriteLine("TileList[{0}]: MapPosition: {1}\nCoord ID: ({2} | {3}\nSprite: {4}\n",
+                index, TileList[index].position, TileList[index].Coord_x, TileList[index].Coord_y, TileList[index].texture);
         }
+        // Auswahlloop für eine Tile bei der ID Coord_x | Coord_y
+        private static int SelectTile(int Coord_x, int Coord_y, List<Tile> TileList)
+        {
+            int i = 0;
+            foreach (var item in TileList)
+            {
+                i++;
+                if (item.Coord_x == Coord_x && item.Coord_y == Coord_y)
+                {
+                    return i - 1;
+                }
+            }
+            Console.WriteLine("Tile nicht gefunden!");
+            return -1;
+        }
+
     }
 }

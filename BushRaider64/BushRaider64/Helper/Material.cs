@@ -18,10 +18,10 @@ namespace BushRaider64
 
         public static void LoadMaterial()
         {
-            snow = SpriteFactory.createSpriteNoScale(50, 50, "GameAssets/snow.png");
-            desert = SpriteFactory.createSpriteNoScale(50, 50, "GameAssets/desert.png");
-            soil = SpriteFactory.createSpriteNoScale(50, 50, "GameAssets/soil.jpg");
-            cobble = SpriteFactory.createSpriteNoScale(50, 50, "GameAssets/stone_cobble.jpg");
+            snow = SpriteFactory.createSpriteNoScale("GameAssets/snow.png");
+            desert = SpriteFactory.createSpriteNoScale("GameAssets/desert.png");
+            soil = SpriteFactory.createSpriteNoScale("GameAssets/soil.jpg");
+            cobble = SpriteFactory.createSpriteNoScale("GameAssets/stone_cobble.jpg");
         }
 
     }

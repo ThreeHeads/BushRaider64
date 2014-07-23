@@ -43,7 +43,7 @@ namespace BushRaider64
             {  
                 for (Coord_x = 0, position_x = 0; position_x < this.mapWidth; position_x += tileWidth, Coord_x++)
                 {
-                    TileList.Add(new Tile(new Vector2f(position_x , position_y), tileWidth, tileHeight, Coord_x, Coord_y));
+                    TileList.Add(new Tile(new Vector2f(position_x , position_y), Coord_x, Coord_y));
                 }
             }    
 

@@ -22,6 +22,7 @@ namespace BushRaider64
         {
             Material.LoadMaterial();
             TileMap.LoadContent(TileMap.SpriteTexture.desert);
+            TileEditor.TileInfo(0, 0, TileMap.TileList);
         }
 
         public void ChangeContent() // Bitte noch bei screenhandler usw einfügen!
