@@ -41,20 +41,17 @@ namespace BushRaider64
             switch (texture)
             {
                 case TileMap.SpriteTexture.desert:
-                    {
-                        TileList[index].LoadContent("GameAssets/desert.png");
-                        break;
-                    }
+                    TileList[index].LoadContent("desert");
+                    break;
                 case TileMap.SpriteTexture.snow:
-                    {
-                        TileList[index].LoadContent("GameAssets/snow.png");
-                        break;
-                    }
+                    TileList[index].LoadContent("snow");
+                    break;
                 case TileMap.SpriteTexture.soil:
-                    {
-                        TileList[index].LoadContent("GameAssets/soil.jpg");
-                        break;
-                    }
+                    TileList[index].LoadContent("soil");
+                    break;
+                case TileMap.SpriteTexture.cobble:
+                    TileList[index].LoadContent("cobble");
+                    break;
             }
             return 0;
 

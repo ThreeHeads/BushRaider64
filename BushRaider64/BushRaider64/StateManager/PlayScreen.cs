@@ -21,7 +21,7 @@ namespace BushRaider64
         public override void LoadContent()
         {
             Material.LoadMaterial();
-            TileMap.LoadContent(TileMap.SpriteTexture.cobble);        
+            TileMap.LoadContent(TileMap.SpriteTexture.desert);
         }
 
         public void ChangeContent() // Bitte noch bei screenhandler usw einfügen!
