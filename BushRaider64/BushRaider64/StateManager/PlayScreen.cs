@@ -21,7 +21,7 @@ namespace BushRaider64
         public override void LoadContent()
         {
             Material.LoadMaterial();
-            TileMap.LoadContent(TileMap.SpriteTexture.desert);
+            TileMap.LoadContent(TileMap.SpriteTexture.snow);
             TileEditor.TileInfo(0, 0, TileMap.TileList);
         }
 
